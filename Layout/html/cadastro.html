@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="stylesheet" href="../css/NavFooter.css">
+  </head>
+  <body>
+
+    <!--inicio do site (topo)-->
+
+    <nav class="navbar navbar-expand-lg nav_color">
+    <div class="container-fluid container">
+        <a class="navbar-brand" href="index.html"><img class="nav_logo" src="../imgs/LogoFullLight 2.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav_flex" id="navbarNavAltMarkup">
+            <div class="navbar-nav text-center">
+                <a class="nav-link botom_nav active_nav" href="#">Cadastre-se</a>
+                <a class="nav-link botom_nav botom_cell" href="#">Fazer Login</a>
+            </div>
+        </div>
+    </div>
+    </nav>
+
+    <!--Login Movus-->
+    <header>
+        <div class="container top_cadastro">
+            <form action="">
+                <div class="title_cadastro">
+                    <label for="">Cadastro</label>
+                </div>
+                <!--Dados do usuario-->
+                <div class="title_linha">
+                    <label for="">Dados do usuário</label>
+                </div>
+                <div class="row g-3 linha_form_cadastro">
+                    <div class="col-sm-5 form-floating ">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Nome:</label>
+                    </div>
+                    <div class="col-sm-5 form-floating ">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Sobrenome:</label>
+                    </div>
+                    <div class="col-sm form-floating ">
+                        <input type="date" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Data de Nascimento:</label>
+                    </div>
+                </div>
+                <div class="row g-3 linha_form_cadastro">
+                    <div class="col-sm-3 form-floating ">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">CPF:</label>
+                    </div>
+                    <div class="col-sm-6 form-floating ">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">E-mail:</label>
+                    </div>
+                    <div class="col-sm-3 form-floating ">
+                        <input type="tel" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Telefone:</label>
+                    </div>
+                </div>
+                <hr>
+                <!--Endereço-->
+                <div class="title_linha">
+                    <label for="">Endereço</label>
+                </div>
+                <div class="row g-3 linha_form_cadastro">
+                    <div class="col-sm-3 form-floating ">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">CEP:</label>
+                    </div>
+                    <div class="col-sm-6 form-floating ">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Rua:</label>
+                    </div>
+                    <div class="col-sm-3 form-floating ">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Número:</label>
+                    </div>
+                </div>
+                <div class="row g-3 linha_form_cadastro">
+                    <div class="col-sm-5 form-floating ">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Bairro:</label>
+                    </div>
+                    <div class="col-sm-5 form-floating ">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Cidade:</label>
+                    </div>
+                    <div class="col-sm-2 form-floating ">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Estado:</label>
+                    </div>
+                </div>
+                <hr>
+                <!--login-->
+                <div class="title_linha">
+                    <label for="">Login</label>
+                </div>
+                <div class="row g-4 linha_form_cadastro">
+                    <div class="col-sm-4 form-floating ">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Nome de Usuário:</label>
+                    </div>
+                    <div class="col-sm-3 form-floating ">
+                        <input type="password" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Senha:</label>
+                    </div>
+                    <div class="col-sm-3 form-floating ">
+                        <input type="password" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Repita a senha:</label>
+                    </div>
+                    <div class="col-sm-2 btn_salvar">
+                        <a type="submit" class="btn_salvar_click" href="">Salvar</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </header>
+
+    
+
+       <!--Fim do site (Botom)-->
+
+    <footer class="footer_pc footer_bot">
+        <div class="text-center ">
+            <div class="container">
+                <div class="row row-cols-3 movus_cell_footer">
+                    <div class="movus_footer">
+                        <p>2023 MovUs</p>
+                        <a class="Movus_aba" href="">> home</a>
+                        <a class="Movus_aba" href="">> Sobre</a>
+                        <a class="Movus_aba" href="">> Vantagens</a>
+                    </div>        
+                    <div class="logo_movus_footer">
+                        <a class="navbar-brand" href="#"><img class="nav_logo" src="../imgs/LogoFullLight 2.png" alt=""></a>
+                    </div>           
+                    <div>
+                        <div class="redes_movus">
+                            <p>Nossas Redes</p>
+                        </div>
+                        <div class="redes_movus">
+                            <a href=""><img src="../imgs/Instagram.png" alt=""></a>
+                            <a href=""><img src="../imgs/Facebook.png" alt=""></a>
+                            <a href=""><img src="../imgs/GitHub.png" alt=""></a>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+          </div>
+    </footer>
+
+    <footer class="footer_cell footer_bot text-center">
+        <div class="container">
+            <div class="logo_movus_footer">
+                <a class="navbar-brand" href="index.html"><img class="nav_logo" src="../imgs/LogoFullLight 2.png" alt=""></a>
+            </div>   
+            <div class="movus_footer  espacamento_cell_footer">
+                <p>2023 MovUs</p>
+                <a class="Movus_aba" href="index.html">> home</a>
+                <a class="Movus_aba" href="">> Sobre</a>
+                <a class="Movus_aba" href="">> Vantagens</a>
+            </div>             
+            <div>
+                <div class="redes_movus espacamento_cell_footer">
+                    <p>Nossas Redes</p>
+                </div>
+                <div class="redes_movus">
+                    <a href=""><img src="../imgs/Instagram.png" alt=""></a>
+                    <a href=""><img src="../imgs/Facebook.png" alt=""></a>
+                    <a href=""><img src="../imgs/GitHub.png" alt=""></a>
+                </div>
+            </div> 
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  </body>
+</html>

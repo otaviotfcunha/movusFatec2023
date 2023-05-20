@@ -1,0 +1,41 @@
+header {
+    width: 100%;
+    color: #B2292C;
+    font-weight: 600;
+}
+
+.top_cadastro, .title_linha {
+    margin-top: 2em;
+}
+
+.linha_form_cadastro {
+    margin-top: 0.5em;
+}
+
+.btn_salvar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn_salvar_click {
+    text-decoration: none;
+    color: white;
+    background-color: #B2292C;
+    border-radius: 5px;
+    padding: 10px 35px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn_salvar_click:hover {
+    background-color: white;
+    border: 3px solid #B2292C;
+    color: #B2292C;
+}
+
+@media only screen and (max-width: 600px) {
+    .btn_salvar_click {
+        padding: 10px 50px;
+    }
+}
