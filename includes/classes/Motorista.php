@@ -1,14 +1,16 @@
-<?php 
-    public class Usuario {
+<?php
+    public class Motorista 
+    {
         public $id;
         public $nome;
         public $cpf;
         public $email;
+        public $matricula;
         public $celular;
         public $dataNascimento;
+        public $cnh;
         public $sexo;
-        public $login;
-        public $senha;
+        public $dataAdmissao;
         public $status;
 
         public function __construct($id = false) {
@@ -19,27 +21,28 @@
 
         }
 
-        public function inserirUsuario() {
-            $sql = "INSERT INTO tb_usuarios(nome, cpf, email, celular, data_nascimento, sexo, login, senha, status) VALUES (
+        public function inserirMotorista() {
+            $sql = "INSERT INTO tb_motoristas(nome, cpf, email, matricula, celular, data_nascimento, cnh, sexo, data_admissao, status) VALUES (
                 '{this->$nome}',
                 '{this->$cpf}',
                 '{this->$email}',
+                '{this->$matricula}',
                 '{this->$celular}',
                 '{this->$dataNascimento}',
+                '{this->$cnh}',
                 '{this->$sexo}',
-                '{this->$login}',
-                '{this->$senha}',
+                '{this->$data_admissao}',
                 '{this->$status}'
             )";
 
             include_once "../bd/conexao.php";
             $conexao->exec($sql);
-            echo "<script type='text/javascript'> alert('Usuário inserido com sucesso!'); window.location.href='../listarUsuarios.php'; </script>";
+            echo "<script type='text/javascript'> alert('Motorista inserido com sucesso!'); window.location.href='../listarUsuarios.php'; </script>";
 
         }
 
-        public function listarUsuario() {
-            $sql = "SELECT * FROM tb_usuarios WHERE status=1";
+        public function listarMotoristas() {
+            $sql = "SELECT * FROM tb_motoristas WHERE status=1";
             include_once "../bd/conexao.php";
             $resultado = $conexao->query($sql);
 
@@ -48,11 +51,11 @@
             return $lista;
         }
 
-        public function desativarUsuario($idUsuario) {
-            $usuarioASerDesativado = this->carregarDados($idUsuario);
+        public function desativarMotorista($idMotorista) {
+            $motoristaASerDesativado = this->carregarDados($idMotorista);
             $retorno = false;
-            if($usuarioASerDesativado != null) {
-                $sql = "DELETE FROM tb_usuarios WHERE id='".$usuarioASerDesativado['id']."'";
+            if($motoristaASerDesativado != null) {
+                $sql = "DELETE FROM tb_motoristas WHERE id='".$motoristaASerDesativado['id']."'";
                 include_once "../bd/conexao.php";
                 if($conexao->exec($sql)) {
                     $retorno = true;
@@ -61,20 +64,21 @@
             return $retorno;   
         }
 
-        public function atualizarUsuario($idUsuario) {
-            $usuarioASerAtualizado = this->carregarDados($idUsuario);
+        public function atualizarMotoristas($idMotorista) {
+            $motoristaASerAtualizado = this->carregarDados($idMotorista);
             $retorno = false;
-            $sql = "UPDATE tb_usuarios SET (
+            $sql = "UPDATE tb_motoristas SET (
                 nome = '$this->nome',
                 cpf = '$this->cpf',
                 email = '$this->email',
+                matricula = '$this->matricula',
                 celular = '$this->celular,
                 dataNascimento = '$this->dataNascimento,
+                cnh = '$this->cnh',
                 sexo = '$this->sexo',
-                login = '$this->login',
-                senha = '$this->senha',
+                dataAdmissao = '$this->dataAdmissao',
                 status = '$this->status',
-                WHERE id='" .$usuarioASerAtualizado['id']. "'
+                WHERE id='" .$motoristaASerAtualizado['id']. "'
             )";
 
             include_once "../bd/conexao.php";
@@ -84,8 +88,8 @@
             return $retorno;
         }
 
-        public function carregarDados($idUsuario) {
-            $sql = "SELECT * FROM tb_usuarios WHERE id='" .$usuarioASerCarregado['id']. "'";
+        public function carregarDados($idMotorista) {
+            $sql = "SELECT * FROM tb_motoristas WHERE id='" .$motoristaASerCarregado['id']. "'";
             
             include_once "../bd/conexao.php";
             
@@ -96,14 +100,14 @@
             $this->nome = $linha['nome'];
             $this->cpf = $linha['cpf'];
             $this->email = $linha['email'];
+            $this->matricula = $linha['matricula'];
             $this->celular = $linha['celular'];
             $this->dataNascimento = $linha['dataNascimento'];
+            $this->cnh = $linha['cnh'];
             $this->sexo = $linha['sexo'];
-            $this->login = $linha['login'];
-            $this->senha = $linha['senha'];
+            $this->dataAdmissao = $linha['dataAdmissao'];
             $this->status = $linha['status'];
 
         }
-
 
     }
