@@ -37,6 +37,11 @@ nav {
     transform: translateY(-2px);
 }
 
+.Nome_user {
+    color: white;
+    font-weight: 600;
+}
+
 /*footer*/
 
 .footer_cell {
@@ -46,7 +51,7 @@ nav {
 
 footer{
     width: 100%;
-    height: 20vh;
+    height: 25vh;
     margin-top: 3em;
     background-color:#B2292C;
 }
