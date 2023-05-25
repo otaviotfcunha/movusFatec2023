@@ -1,40 +1,58 @@
 <?php 
-    public class Usuario {
+    class Usuario {
         public $id;
         public $nome;
         public $cpf;
         public $email;
         public $celular;
         public $dataNascimento;
-        public $sexo;
         public $login;
         public $senha;
-        public $status;
+        public $ativo;
 
-        public function __construct($id = false) {
-            if($id) {
-                this->id = $id;
-                this->carregarDados();
+        // public function __construct($id = false) {
+        //     if($id) {
+        //         this->id = $id;
+        //         this->carregarDados();
+        //     }
+
+        // }
+        public function encriptarSenha ($recebeLogin, $recebeSenha) {
+            $hash = "";
+            
+            $hash = md5($recebeLogin . $recebeSenha);
+            
+            //CRIA UM LOOP COM 666 ENCRIPTAÇÕES DA SENHA DO USUARIO
+            for ($i = 0; $i < 666; $i++){
+                $hash = md5($hash);
             }
 
+            return $hash;
         }
 
-        public function inserirUsuario() {
-            $sql = "INSERT INTO tb_usuarios(nome, cpf, email, celular, data_nascimento, sexo, login, senha, status) VALUES (
-                '{this->$nome}',
-                '{this->$cpf}',
-                '{this->$email}',
-                '{this->$celular}',
-                '{this->$dataNascimento}',
-                '{this->$sexo}',
-                '{this->$login}',
-                '{this->$senha}',
-                '{this->$status}'
+        public function inserirUsuario($recebeNome, $recebeCpf, $recebeEmail, $recebeCelular, $recebeDataNascimento, $recebeLogin, $recebeSenha) {
+            
+            $hash = $this->encriptarSenha($recebeLogin, $recebeSenha);
+            
+            $sql = "INSERT INTO usuarios(nome, cpf, email, celular, data_nascimento, login, senha, ativo) VALUES (
+                '".$recebeNome."',
+                '".$recebeCpf."',
+                '".$recebeEmail."',
+                '".$recebeCelular."',
+                '".$recebeDataNascimento."',
+                '".$recebeLogin."',
+                '".$hash."',
+                '1'
             )";
-
-            include_once "../bd/conexao.php";
-            $conexao->exec($sql);
-            echo "<script type='text/javascript'> alert('Usuário inserido com sucesso!'); window.location.href='../listarUsuarios.php'; </script>";
+            include_once "conexao.php";
+            if($conexao->exec($sql)) {
+                
+                echo "<script type='text/javascript'> alert('Usuário inserido com sucesso!'); window.location.href='listarUsuarios.php'; </script>";
+                
+            } else {
+                
+                echo "<script type='text/javascript'> alert('Erro!'); window.location.href='../listarUsuarios.php'; </script>";
+            }
 
         }
 
@@ -84,7 +102,7 @@
             return $retorno;
         }
 
-        public function carregarDados($idUsuario) {
+        public function carregarDados() {
             $sql = "SELECT * FROM tb_usuarios WHERE id='" .$usuarioASerCarregado['id']. "'";
             
             include_once "../bd/conexao.php";
@@ -104,6 +122,8 @@
             $this->status = $linha['status'];
 
         }
+
+        
 
 
     }
