@@ -26,7 +26,7 @@ function mascaraDate () {
 }
 
 function mascaraCEP () {
-    const input = document.getElementById("CEP")
+    const input = document.getElementById("cep")
 
     input.addEventListener('keypress', () => {
         let inputlength = input.value.length
