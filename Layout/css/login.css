@@ -4,7 +4,7 @@ header{
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 70vh;
+    min-height: 70vh;
     justify-content: center;
     align-items: center;
 }
