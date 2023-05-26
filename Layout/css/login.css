@@ -23,6 +23,12 @@ header{
     justify-content: center;
 }
 
+.span-required {
+    display: none;
+    transition: all 0.4s ease-in-out;
+    margin: 3px 0 0 1px;
+}
+
 .campo_login {
     display: flex;
     justify-content: space-between;
