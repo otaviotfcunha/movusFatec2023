@@ -33,19 +33,19 @@
         <div class="container top_cadastro">
             <form action="../../includes/inserirUsuario.php" method="POST">
                 <div class="title_cadastro">
-                    <label for="">Cadastro</label>
+                    <label>Cadastro</label>
                 </div>
                 <!--Dados do usuario-->
                 <div class="title_linha">
                     <label for="">Dados do usuário</label>
                 </div>
-                <div class="row g-6 linha_form_cadastro">
-                    <div class="col-sm-5 form-floating ">
+                <div class="row g-3 linha_form_cadastro">
+                    <div class="col-sm-9 form-floating ">
                         <input type="text" class="form-control" name="nome" id="floatingInput" placeholder="">
                         <label for="floatingInput">Nome:</label>
                     </div>
-                    <div class="col-sm form-floating ">
-                        <input type="text" id="DateNasc" name="dataNascimento" onkeypress="mascaraDate()" maxlength="10" minlength="10" class="form-control" id="floatingInput" placeholder="">
+                    <div class="col-sm-3 form-floating ">
+                        <input type="date" id="DateNasc" name="dataNascimento" onkeypress="mascaraDate()" maxlength="10" minlength="10" class="form-control" id="floatingInput" placeholder="">
                         <label for="floatingInput">Data de Nascimento:</label>
                     </div>
                 </div>

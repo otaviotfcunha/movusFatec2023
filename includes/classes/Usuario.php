@@ -8,15 +8,15 @@
         public $dataNascimento;
         public $login;
         public $senha;
+        public $cep;
+        public $rua;
+        public $numero;
+        public $bairro;
+        public $cidade;
+        public $estado;
         public $ativo;
 
-        // public function __construct($id = false) {
-        //     if($id) {
-        //         this->id = $id;
-        //         this->carregarDados();
-        //     }
 
-        // }
         public function encriptarSenha ($recebeLogin, $recebeSenha) {
             $hash = "";
             
@@ -30,11 +30,13 @@
             return $hash;
         }
 
-        public function inserirUsuario($recebeNome, $recebeCpf, $recebeEmail, $recebeCelular, $recebeDataNascimento, $recebeLogin, $recebeSenha) {
+        public function inserirUsuario($recebeNome, $recebeCpf, $recebeEmail, $recebeCelular, $recebeDataNascimento, $recebeLogin, $recebeSenha, $recebeCep, $recebeRua, $recebeNumero, $recebeBairro, $recebeCidade, $recebeEstado) {
             
             $hash = $this->encriptarSenha($recebeLogin, $recebeSenha);
+
+
             
-            $sql = "INSERT INTO usuarios(nome, cpf, email, celular, data_nascimento, login, senha, ativo) VALUES (
+            $sql = "INSERT INTO usuarios(nome, cpf, email, celular, data_nascimento, login, senha, cep, rua, numero, bairro, cidade, estado, ativo) VALUES (
                 '".$recebeNome."',
                 '".$recebeCpf."',
                 '".$recebeEmail."',
@@ -42,6 +44,12 @@
                 '".$recebeDataNascimento."',
                 '".$recebeLogin."',
                 '".$hash."',
+                '".$recebeCep."',
+                '".$recebeRua."',
+                '".$recebeNumero."',
+                '".$recebeBairro."',
+                '".$recebeCidade."',
+                '".$recebeEstado."',
                 '1'
             )";
             include_once "conexao.php";
@@ -51,14 +59,16 @@
                 
             } else {
                 
-                echo "<script type='text/javascript'> alert('Erro!'); window.location.href='../listarUsuarios.php'; </script>";
+                echo "<script type='text/javascript'> alert('Erro!'); window.location.href='index.html'; </script>";
+
             }
+
 
         }
 
         public function listarUsuario() {
-            $sql = "SELECT * FROM tb_usuarios WHERE status=1";
-            include_once "../bd/conexao.php";
+            $sql = "SELECT * FROM usuarios WHERE status=1";
+            include_once "conexao.php";
             $resultado = $conexao->query($sql);
 
             $lista = $resultado->fetchAll();
@@ -66,12 +76,14 @@
             return $lista;
         }
 
+
         public function desativarUsuario($idUsuario) {
             $usuarioASerDesativado = this->carregarDados($idUsuario);
+            
             $retorno = false;
-            if($usuarioASerDesativado != null) {
-                $sql = "DELETE FROM tb_usuarios WHERE id='".$usuarioASerDesativado['id']."'";
-                include_once "../bd/conexao.php";
+            if($usuarioASerDesativado['id'] != null) {
+                $sql = "UPDATE usuarios SET ativo = '0' WHERE id='".$usuarioASerDesativado['id']."'";
+                include_once "conexao.php";
                 if($conexao->exec($sql)) {
                     $retorno = true;
                 }
@@ -79,51 +91,52 @@
             return $retorno;   
         }
 
-        public function atualizarUsuario($idUsuario) {
-            $usuarioASerAtualizado = this->carregarDados($idUsuario);
-            $retorno = false;
-            $sql = "UPDATE tb_usuarios SET (
-                nome = '$this->nome',
-                cpf = '$this->cpf',
-                email = '$this->email',
-                celular = '$this->celular,
-                dataNascimento = '$this->dataNascimento,
-                sexo = '$this->sexo',
-                login = '$this->login',
-                senha = '$this->senha',
-                status = '$this->status',
-                WHERE id='" .$usuarioASerAtualizado['id']. "'
-            )";
 
-            include_once "../bd/conexao.php";
+        public function atualizarUsuario($recebeId) {
+            $usuarioASerAtualizado = this->carregarDados($recebeId);
+            $retorno = false;
+            $sql = "UPDATE usuarios SET 
+                nome = '".$linha['nome']."',
+                cpf = '".$linha['cpf']."',
+                email = '".$linha['email']."',
+                celular = '".$linha['celular']."',
+                data_nascimento = '".$linha['data_nascimento']."',
+                cep = '".$linha['cep']."',
+                rua = '".$linha['rua']."',
+                estado = '".$linha['numero']."',
+                numero = '".$linha['cidade']."',
+                bairro = '".$linha['bairro']."',
+                cidade = '".$linha['estado']."',
+                ativo = '".$linha['ativo']."'
+                WHERE id='" .$usuarioASerAtualizado['id']. "'
+            ";
+
+            include_once "conexao.php";
             if($conexao->exec($sql)) {
                 $retorno = true;
             }
             return $retorno;
         }
 
-        public function carregarDados() {
-            $sql = "SELECT * FROM tb_usuarios WHERE id='" .$usuarioASerCarregado['id']. "'";
+        public function carregarDados($recebeId) {
+
+
+            $sql = "SELECT * FROM suarios WHERE id='" .$recebeId. "'";
             
-            include_once "../bd/conexao.php";
-            
+            include_once "conexao.php";
+
             $resultado = $conexao->query($sql);
 
-            $linha = $resultado->fetch();
+            $nRows = $resultado->rowCount();
 
-            $this->nome = $linha['nome'];
-            $this->cpf = $linha['cpf'];
-            $this->email = $linha['email'];
-            $this->celular = $linha['celular'];
-            $this->dataNascimento = $linha['dataNascimento'];
-            $this->sexo = $linha['sexo'];
-            $this->login = $linha['login'];
-            $this->senha = $linha['senha'];
-            $this->status = $linha['status'];
+            if($nRows > 0) {
+                $linha = $resultado->fetch();
+            } else {
+                $linha = "";
+                echo "<script type='text/javascript'> alert('Erro!'); window.location.href='../listarUsuarios.php'; </script>";
+            }
 
+            return $linha;
         }
-
-        
-
 
     }
