@@ -1,0 +1,93 @@
+	<header>
+        <div class="container top_cadastro">
+            <form action="includes/inserirUsuario.php" method="POST">
+                <div class="title_cadastro">
+                    <label>Cadastro</label>
+                </div>
+                <!--Dados do usuario-->
+                <div class="title_linha">
+                    <label for="">Dados do usuário</label>
+                </div>
+                <div class="row g-3 linha_form_cadastro">
+                    <div class="col-sm-9 form-floating ">
+                        <input type="text" class="form-control" name="nome" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Nome:</label>
+                    </div>
+                    <div class="col-sm-3 form-floating ">
+                        <input type="date" id="DateNasc" name="dataNascimento" onkeypress="mascaraDate()" maxlength="10" minlength="10" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Data de Nascimento:</label>
+                    </div>
+                </div>
+                <div class="row g-3 linha_form_cadastro">
+                    <div class="col-sm-3 form-floating ">
+                        <input name="cpf" id="CPF" type="text" class="form-control" onkeypress="mascaraCPF()" autocomplete="off" maxlength="14" placeholder="">
+                        <label for="floatingInput">CPF:</label>
+                    </div>
+                    <div class="col-sm-6 form-floating ">
+                        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">E-mail:</label>
+                    </div>
+                    <div class="col-sm-3 form-floating ">
+                        <input type="text" class="form-control" name="celular" maxlength="14" id="tell" onkeypress="macaraTelefone()" placeholder="">
+                        <label for="floatingInput">Telefone:</label>
+                    </div>
+                </div>
+                <hr>
+                <!--Endereço-->
+                <div class="title_linha">
+                    <label for="">Endereço</label>
+                </div>
+                <div class="row g-3 linha_form_cadastro">
+                    <div class="col-sm-3 form-floating ">
+                        <input type="text" class="form-control" id="cep" name="cep" maxlength="10" onkeypress="mascaraCEP()" placeholder="">
+                        <label for="floatingInput">CEP:</label>
+                    </div>
+                    <div class="col-sm-6 form-floating ">
+                        <input type="text" class="form-control" name="rua" id="rua" placeholder="">
+                        <label for="floatingInput">Rua:</label>
+                    </div>
+                    <div class="col-sm-3 form-floating ">
+                        <input type="text" class="form-control" name="numero" id="numero" placeholder="">
+                        <label for="floatingInput">Número:</label>
+                    </div>
+                </div>
+                <div class="row g-3 linha_form_cadastro">
+                    <div class="col-sm-5 form-floating ">
+                        <input type="text" class="form-control" name="bairro" id="bairro" placeholder="">
+                        <label for="floatingInput">Bairro:</label>
+                    </div>
+                    <div class="col-sm-5 form-floating ">
+                        <input type="text" class="form-control" name="cidade" id="cidade" placeholder="">
+                        <label for="floatingInput">Cidade:</label>
+                    </div>
+                    <div class="col-sm-2 form-floating ">
+                        <input type="text" class="form-control" name="estado" id="estado" placeholder="">
+                        <label for="floatingInput">Estado:</label>
+                    </div>
+                </div>
+                <hr>
+                <!--login-->
+                <div class="title_linha">
+                    <label for="">Login</label>
+                </div>
+                <div class="row g-4 linha_form_cadastro">
+                    <div class="col-sm-4 form-floating ">
+                        <input type="text" class="form-control" name="login" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Nome de Usuário:</label>
+                    </div>
+                    <div class="col-sm-3 form-floating ">
+                        <input type="password" class="form-control" name="senha" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Senha:</label>
+                    </div>
+                    <div class="col-sm-3 form-floating ">
+                        <input type="password" class="form-control" name="repeteSenha" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Repita a senha:</label>
+                    </div>
+                    <div class="col-sm-2 btn_salvar">
+                        <button type="submit" class="btn_salvar_click">Salvar</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </header>

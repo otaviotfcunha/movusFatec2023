@@ -1,0 +1,105 @@
+/*nav bar*/
+
+nav {
+    width: 100%;
+    min-height: 10vh;
+}
+
+.nav_color {
+    background-color: #B2292C;
+}
+
+.nav_logo {
+    width: 100px;
+    height: 50px;
+}
+
+.nav_flex {
+    justify-content: right;
+}
+
+.botom_nav {
+    color: white;
+    font-weight: 600;
+    margin-right: 20px;
+    border: 3px solid white;
+    border-radius: 15px;
+    padding: 5px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.botom_nav:hover, .active_nav {
+    color: #B2292C;
+    background-color: white;
+}
+
+.botom_nav:hover {
+    transform: translateY(-2px);
+}
+
+.Nome_user {
+    color: white;
+    font-weight: 600;
+}
+
+/*footer*/
+
+.footer_cell {
+    display: none;
+    transition: all 0.4s ease;
+}
+
+footer{
+    width: 100%;
+    min-height: 25vh;
+    margin-top: 3em;
+    background-color:#B2292C;
+}
+
+.footer_bot {
+    padding: 1em 0;
+    color: white;
+    font-weight: 600;
+}
+
+.movus_footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.Movus_aba {
+    text-decoration: none;
+    color: #B0B0B0;
+}
+
+@media only screen and (max-width: 600px) {
+    .footer_pc{
+        display: none;
+        transition: all 0.4s ease;
+    }
+    .footer_cell{
+        display: block;
+    }
+    .movus_cell_footer {
+        display: flex;
+        flex-direction: column;
+    }
+    .espacamento_cell_footer {
+        margin-top: 1.5em;
+    }
+}
+
+
+@media only screen and (max-width: 991px) {
+    .botom_cell {
+        margin-top: 0.3em;
+    }
+    nav {
+        width: 100%;
+        height: auto;
+    }
+    footer{
+        width: 100%;
+        height: auto;
+    }
+}

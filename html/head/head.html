@@ -1,0 +1,38 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Movus</title>
+	<link href="lib/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="lib/css/index.css">
+	
+<?php
+	if(isset($_GET['pagina'])){
+		if($_GET['pagina'] == "principal"){
+?>
+	<link rel="stylesheet" href="lib/css/index.css">
+<?php		
+		}
+		if($_GET['pagina'] == "cadastro"){
+?>
+	<link rel="stylesheet" href="lib/css/cadastro.css">
+<?php		
+		}
+		if($_GET['pagina'] == "login"){
+?>
+	<link rel="stylesheet" href="lib/css/login.css">
+<?php		
+		}
+		if($_GET['pagina'] == "map"){
+?>
+	<link rel="stylesheet" href="lib/css/maps.css">
+<?php		
+		}
+	}else{
+?>
+	<link rel="stylesheet" href="lib/css/index.css">
+<?php	
+	}
+
+?>
+	<link rel="stylesheet" href="lib/css/NavFooter.css">
+</head>

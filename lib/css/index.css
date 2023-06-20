@@ -1,0 +1,41 @@
+
+/*header*/
+
+header > img {
+    width: 1920px;
+    height: 589px;
+}
+
+.img-full {
+    width: 100%;
+}
+
+/*main*/
+
+.main_cell {
+    display: none;
+}
+
+.main_top {
+    margin-top: 3em;
+    color: #B2292C;
+}
+
+.title_main{
+    justify-content: left;
+}
+
+.col_margim {
+    width: 150px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .main_pc {
+        display: none;
+    }
+    .main_cell {
+        display: block;
+    }
+}

@@ -55,11 +55,11 @@
             include_once "conexao.php";
             if($conexao->exec($sql)) {
                 
-                echo "<script type='text/javascript'> alert('Usuário inserido com sucesso!'); window.location.href='listarUsuarios.php'; </script>";
+                echo "<script type='text/javascript'> alert('Usuário inserido com sucesso!'); window.location.href='../?pagina=login'; </script>";
                 
             } else {
                 
-                echo "<script type='text/javascript'> alert('Erro!'); window.location.href='index.html'; </script>";
+                echo "<script type='text/javascript'> alert('Erro!'); window.location.href='../?pagina=cadastro'; </script>";
 
             }
 
@@ -78,7 +78,7 @@
 
 
         public function desativarUsuario($idUsuario) {
-            $usuarioASerDesativado = this->carregarDados($idUsuario);
+            $usuarioASerDesativado = $this->carregarDados($idUsuario);
             
             $retorno = false;
             if($usuarioASerDesativado['id'] != null) {
@@ -93,7 +93,7 @@
 
 
         public function atualizarUsuario($recebeId) {
-            $usuarioASerAtualizado = this->carregarDados($recebeId);
+            $usuarioASerAtualizado = $this->carregarDados($recebeId);
             $retorno = false;
             $sql = "UPDATE usuarios SET 
                 nome = '".$linha['nome']."',
@@ -121,7 +121,7 @@
         public function carregarDados($recebeId) {
 
 
-            $sql = "SELECT * FROM suarios WHERE id='" .$recebeId. "'";
+            $sql = "SELECT * FROM usuarios WHERE id='" .$recebeId. "'";
             
             include_once "conexao.php";
 
@@ -138,5 +138,39 @@
 
             return $linha;
         }
+		
+		public function loginUsuario($recebeLogin, $recebeSenha){
+			$hash = $this->encriptarSenha($recebeLogin, $recebeSenha);
+			
+			$sql = "SELECT * FROM usuarios WHERE login='". $recebeLogin ."' AND senha='". $hash ."' LIMIT 1";
+			include_once "conexao.php";
+            $resultado = $conexao->query($sql);
+            $nRows = $resultado->rowCount();
+			
+			if($nRows > 0) {
+                $linha = $resultado->fetch();
+				session_start();
+				$_SESSION['LoginUsuarioID'] = $linha['id'];
+				$_SESSION['LoginUsuarioLogin'] = $linha['login'];
+				$_SESSION['LoginUsuarioNome'] = $linha['nome'];
+				$_SESSION['LoginUsuarioCelular'] = $linha['celular'];
+				$_SESSION['LoginUsuarioEmail'] = $linha['email'];
+				$_SESSION['LoginUsuarioDataNascimento'] = $linha['data_nascimento'];
+				$_SESSION['LoginUsuarioCpf'] = $linha['cpf'];
+				$_SESSION['LoginUsuarioCep'] = $linha['cep'];
+				$_SESSION['LoginUsuarioRua'] = $linha['rua'];
+				$_SESSION['LoginUsuarioNumero'] = $linha['numero'];
+				$_SESSION['LoginUsuarioComplemento'] = $linha['complemento'];
+				$_SESSION['LoginUsuarioBairro'] = $linha['bairro'];
+				$_SESSION['LoginUsuarioCidade'] = $linha['cidade'];
+				$_SESSION['LoginUsuarioEstado'] = $linha['estado'];
+				$_SESSION['LoginUsuarioAtivo'] = $linha['ativo'];
+				
+            } else {
+                $linha = false;
+                echo "<script type='text/javascript'> alert('Erro ao efetuar o login!'); window.location.href='../?pagina=login'; </script>";
+            }
+			return $linha;
+		}
 
     }

@@ -1,0 +1,30 @@
+	<header>
+        <div class="login_movus">
+            <form id="formLogin" method="POST" action="includes/loginUsuario.php">
+                <div class="title_login">
+                    <p>Entre com o login criado</p>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control required" name="login" id="floatingInput" placeholder="nome@example.com" oninput="nameValidate()">
+                    <label for="floatingInput">Usuario:</label>
+                    <span class="span-required">Usuario deve ter no mínimo 3 caracteres</span>
+                  </div>
+                  <div class="form-floating mb-3" >
+                    <input type="password" class="form-control required" name="senha" id="floatingPassword" placeholder="Password" oninput="passValidate()">
+                    <label for="floatingPassword">Senha:</label>
+                    <span class="span-required">A senha deve conter no mínimo 8 caracteres</span>
+                  </div>
+                <div class="mb-3 form-check campo_login">
+                    <div>
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Mostrar Senha</label>
+                    </div>
+                    <div><a class="esqueceu" href="">Esqueceu a senha ?</a></div>
+                </div>
+                <div class="btn_login"><button type="submit" class="btn_login_click">Login</button></div>
+                <div class="mb-3 text-center">
+                    <p>Novo na Movus ? <a class="esqueceu" href="?pagina=cadastro"> crie sua conta!</a></p> 
+                </div>
+            </form>
+        </div>
+    </header>
