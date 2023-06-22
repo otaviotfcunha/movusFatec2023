@@ -1,0 +1,57 @@
+package com.apimongo.movusnosql.controller;
+
+import java.time.Duration;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.apimongo.movusnosql.document.Onibus;
+import com.apimongo.movusnosql.service.OnibusService;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import reactor.util.function.Tuple2;
+
+@RestController
+public class OnibusController {
+	
+	@Autowired
+	private OnibusService onibusService;
+	
+	@GetMapping(value = "/")
+	public String hello() {
+		return "Bem vindo à API do Movus!";
+		
+	}
+	
+	@GetMapping(value = "/onibus")
+	public Flux<Onibus> getOnibus() {
+		return onibusService.findAll();
+	}
+	
+	@GetMapping(value = "/onibus/{id}")
+	public Mono<Onibus> getOnibusById(@PathVariable String id) {
+		return onibusService.findById(id);
+	}
+	
+	@PostMapping(value = "/onibus")
+	public Mono<Onibus> save(@RequestBody Onibus onibus) {
+		return onibusService.save(onibus);
+	}
+	
+	//Criar stream de eventos
+	@GetMapping(value = "onibus/lista")
+	public Flux<Tuple2<Long, Onibus>> getOnibusByRotas() {
+		Flux<Long> interval = Flux.interval(Duration.ofSeconds(10));
+		Flux<Onibus> onibusList = onibusService.findAll();
+		System.out.print("Passou aqui");
+		
+		return Flux.zip(interval, onibusList);
+	}
+	
+	
+}

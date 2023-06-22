@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.SimpleReactiveMongoDatabaseFactory"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.mongo.MongoProperties"/>
+    <fullyQualifiedTypeName name="com.mongodb.reactivestreams.client.MongoClient"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.mapping.Document"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
+    <fullyQualifiedTypeName name="com.apimongo.movusnosql.repository.RotaRepository"/>
+    <fullyQualifiedTypeName name="com.apimongo.movusnosql.service.RotaService"/>
+    <fullyQualifiedTypeName name="com.apimongo.movusnosql.document.Rota"/>
+    <fullyQualifiedTypeName name="org.springframework.data.annotation.Id"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.repository.ReactiveMongoRepository"/>
+    <fullyQualifiedTypeName name="com.apimongo.movusnosql.repository.OnibusRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="reactor.core.publisher.Flux"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.apimongo.movusnosql.service.OnibusService"/>
+    <fullyQualifiedTypeName name="reactor.core.publisher.Mono"/>
+    <fullyQualifiedTypeName name="com.apimongo.movusnosql.document.Onibus"/>
+    <fullyQualifiedTypeName name="org.springframework.web.reactive.function.server.ServerRequest"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="org.springframework.web.reactive.function.server.ServerResponse"/>
+    <fullyQualifiedTypeName name="com.apimongo.movusnosql.OnibusHandler"/>
+    <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
+    <fullyQualifiedTypeName name="org.springframework.web.reactive.function.server.RouterFunction"/>
+    <fullyQualifiedTypeName name="org.springframework.web.reactive.function.server.RouterFunctions"/>
+    <fullyQualifiedTypeName name="org.springframework.web.reactive.function.server.RequestPredicates"/>
+    <fullyQualifiedTypeName name="org.springframework.web.reactive.function.BodyInserter"/>
+    <fullyQualifiedTypeName name="reactor.util.function.Tuple2"/>
+    <fullyQualifiedTypeName name="java.time.Duration"/>
+</qualifiedTypeNameHistroy>
